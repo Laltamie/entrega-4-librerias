@@ -65,9 +65,9 @@ verCarrito.addEventListener("click", () => {
 
 
 
+
 botonBorrar.addEventListener("click", () => {
-    carrito.innerHTML = "";
+    borrarCarrito();
     console.log("hola");
-    crearDivs()
 });
 
