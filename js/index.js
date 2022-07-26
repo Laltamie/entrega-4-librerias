@@ -1,12 +1,9 @@
-// let productos = [];
-// let total = 0;
-
 const productos = [];
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const verCarrito = document.getElementById("verCarrito");
 const botones = document.getElementById("botones");
 const seccionProductos = document.getElementById("productos");
-const botonBorrar = document.getElementById("borrarFiltros");
+const botonBorrar = document.getElementById("borrarCarrito");
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor)};
 
 class Producto{
@@ -42,6 +39,7 @@ function crearDivs() {
                         addCarrito.addEventListener("click", () => {
                             carrito.push(producto);
                             localStorage.setItem("carrito", JSON.stringify(carrito));
+                            swal ("Se agregó al carrito") ;
                         });
                     };
 };
@@ -68,21 +66,8 @@ verCarrito.addEventListener("click", () => {
 
 
 botonBorrar.addEventListener("click", () => {
-    seccionProductos.innerHTML = "";
-    crearTarjetas()
+    carrito.innerHTML = "";
+    console.log("hola");
+    crearDivs()
 });
 
-
-
-// function agregar(producto, precio){
-//     console.log(producto, precio);
-
-//     productos.push(producto);
-//     total = total + precio;
-//     document.getElementById("bot-pagar").innerHTML = `Pagar $${total}`
-
-// }
-
-// function pagar(){
-//     alert(productos.join(", \n"))
-// }
